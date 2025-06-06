@@ -83,25 +83,8 @@ GEM
     drb (2.2.3)
     erb (5.0.1)
     erubi (1.13.1)
-    ffi (1.17.2-aarch64-linux-gnu)
-    ffi (1.17.2-aarch64-linux-musl)
-    ffi (1.17.2-arm-linux-gnu)
-    ffi (1.17.2-arm-linux-musl)
-    ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86_64-darwin)
-    ffi (1.17.2-x86_64-linux-gnu)
-    ffi (1.17.2-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    haml (6.3.0)
-      temple (>= 0.8.2)
-      thor
-      tilt
-    haml-rails (2.1.0)
-      actionpack (>= 5.1)
-      activesupport (>= 5.1)
-      haml (>= 4.0.6)
-      railties (>= 5.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
@@ -122,7 +105,6 @@ GEM
     markdown-rails (1.0.0)
       rails
       rdiscount (>= 1.6.8)
-    method_source (1.1.0)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
@@ -155,12 +137,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
-    phlex (2.3.1)
-      zeitwerk (~> 2.7)
-    phlex-rails (2.3.1)
-      phlex (~> 2.3.0)
-      railties (>= 7.1, < 9)
-      zeitwerk (~> 2.7)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -212,16 +188,6 @@ GEM
       psych (>= 4.0.0)
     reline (0.6.1)
       io-console (~> 0.5)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     securerandom (0.4.1)
     sitepress (4.0.8)
       sitepress-cli (= 4.0.8)
@@ -238,13 +204,6 @@ GEM
       sprockets-rails (>= 2.0.0)
     sitepress-server (4.0.8)
       sitepress-rails (= 4.0.8)
-    slim (5.2.1)
-      temple (~> 0.10.0)
-      tilt (>= 2.1.0)
-    slim-rails (3.7.0)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
-      slim (>= 3.0, < 6.0, != 5.0.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -254,18 +213,22 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     stringio (3.1.7)
-    temple (0.10.3)
+    tailwindcss-rails (4.2.3)
+      railties (>= 7.0.0)
+      tailwindcss-ruby (~> 4.0)
+    tailwindcss-ruby (4.1.8)
+    tailwindcss-ruby (4.1.8-aarch64-linux-gnu)
+    tailwindcss-ruby (4.1.8-aarch64-linux-musl)
+    tailwindcss-ruby (4.1.8-arm64-darwin)
+    tailwindcss-ruby (4.1.8-x86_64-darwin)
+    tailwindcss-ruby (4.1.8-x86_64-linux-gnu)
+    tailwindcss-ruby (4.1.8-x86_64-linux-musl)
     thor (1.3.2)
-    tilt (2.6.0)
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (1.0.3)
     useragent (0.16.11)
-    view_component (3.23.2)
-      activesupport (>= 5.2.0, < 8.1)
-      concurrent-ruby (~> 1)
-      method_source (~> 1.0)
     webrick (1.9.1)
     websocket-driver (0.8.0)
       base64
@@ -284,13 +247,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  haml-rails
   markdown-rails (~> 1.0)
-  phlex-rails
-  sass-rails
   sitepress (~> 4.0)
-  slim-rails
-  view_component
+  tailwindcss-rails (~> 4.2)
   webrick
 
 BUNDLED WITH

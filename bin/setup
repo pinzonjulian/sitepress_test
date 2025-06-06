@@ -39,6 +39,28 @@ unless run_command('mise install node')
 end
 puts "Node.js installation/check complete. ✅"
 
+# Install Yarn version specified in .mise.toml (or .tool-versions)
+puts "\n=== 🧶 Ensuring Yarn is installed via mise ==="
+unless run_command('mise install yarn')
+  puts "Failed to install Yarn with mise. Please check your mise configuration and try again."
+  exit 1
+end
+puts "Yarn installation/check complete. ✅"
+
+# Install JavaScript dependencies with Yarn
+puts "\n=== 📦 Installing JavaScript dependencies with Yarn ==="
+if File.exist?('package.json')
+  # Use `mise exec` to ensure the mise-managed yarn is used
+  unless run_command('mise exec -- yarn install')
+    puts "Failed to install JavaScript dependencies with yarn. Please check your package.json and yarn.lock, then try again."
+    exit 1
+  end
+  puts "Yarn install complete. ✅"
+else
+  puts "❌ package.json not found."
+  exit 1
+end
+
 # Install Ruby dependencies
 puts "\n=== 📦 Installing Ruby gems with Bundler ==="
 unless run_command('bundle install')

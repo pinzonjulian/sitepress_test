@@ -1,0 +1,24 @@
+@import "tailwindcss"; 
+
+:root {
+  color-scheme: light dark;
+  --surface: light-dark(rgb(243, 241, 253), rgb(27, 26, 34));
+  --text: light-dark(rgb(27, 26, 34), rgb(243, 241, 253));
+  --text-dim: light-dark(gray, lightgray);
+}
+
+:where(html) {
+  background: var(--surface);
+  color: var(--text);
+}
+
+@theme {
+  --color-*: initial;
+
+  /* Background colours */
+  --background-color-surface: var(--surface); /* bg-surface */
+
+  /* Text colours */
+  --text-color-surface: var(--text); /* text-surface */
+  --text-color-surface-dim: var(--text-dim); /* text-surface */
+}
