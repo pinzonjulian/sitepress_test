@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# This script starts the development server using Foreman and Procfile.dev
+
+# Check if Foreman is installed
+if ! command -v foreman &> /dev/null
+then
+    echo "Foreman could not be found. Please install it first."
+    echo "You can usually install it with: gem install foreman"
+    exit 1
+fi
+
+echo "Starting services with Foreman..."
+foreman start -f Procfile.dev

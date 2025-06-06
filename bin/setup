@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# This script sets up the development environment for the project.
+
+require 'fileutils'
+require 'open3'
+
+# Function to execute shell commands and print their output.
+def run_command(command)
+  puts "Executing: #{command}"
+  stdout, stderr, status = Open3.capture3(command)
+  puts stdout unless stdout.empty?
+  warn stderr unless stderr.empty?
+  status.success?
+end
+
+puts "Starting project setup... 🚀"
+
+# Ensure mise is available
+unless system('mise --version > /dev/null 2>&1')
+  puts "Mise is not installed or not in PATH. Please install mise first: https://mise.jdx.dev/getting-started.html"
+  exit 1
+end
+
+# Install Ruby version specified in .mise.toml (or .tool-versions)
+puts "\n=== 💎 Ensuring Ruby is installed via mise ==="
+unless run_command('mise install ruby')
+  puts "Failed to install Ruby with mise. Please check your mise configuration and try again."
+  exit 1
+end
+puts "Ruby installation/check complete. ✅"
+
+# Install Node.js version specified in .mise.toml (or .tool-versions)
+puts "\n=== 🟢 Ensuring Node.js is installed via mise ==="
+unless run_command('mise install node')
+  puts "Failed to install Node.js with mise. Please check your mise configuration and try again."
+  exit 1
+end
+puts "Node.js installation/check complete. ✅"
+
+# Install Ruby dependencies
+puts "\n=== 📦 Installing Ruby gems with Bundler ==="
+unless run_command('bundle install')
+  puts "Failed to install gems with bundle install. Please check your Gemfile and try again."
+  exit 1
+end
+puts "Bundle install complete. ✅"
+
+# Install Foreman if not already installed
+puts "\n=== 🛠️ Checking and installing Foreman ==="
+unless system('foreman --version > /dev/null 2>&1')
+  puts "Foreman not found, installing..."
+  unless run_command('gem install foreman')
+    puts "Failed to install Foreman. Please install it manually: gem install foreman"
+    # Decide if this should be a fatal error: exit 1
+  else
+    puts "Foreman installed successfully. ✅"
+  end
+else
+  puts "Foreman is already installed. ✅"
+end
+
+puts "\nProject setup complete! 🎉 You should be able to start the application now."
