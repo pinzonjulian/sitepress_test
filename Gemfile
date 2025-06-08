@@ -9,5 +9,3 @@ gem "webrick"
 # Templating engines. Under the hood Sitepress uses a slimmed
 # down Rails, so rails templating engines should mostly work.
 gem "markdown-rails", "~> 1.0"
-
-gem "tailwindcss-rails", "~> 4.2"

@@ -26,11 +26,11 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Compile Sitepress site
-        run: ./bin/compile
-
       - name: Compile Tailwind CSS
         run: yarn tailwindcss -i ./assets/stylesheets/base.css -o ./assets/stylesheets/application.css
+
+      - name: Compile Sitepress site
+        run: ./bin/compile
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
